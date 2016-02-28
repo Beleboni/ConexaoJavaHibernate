@@ -1,0 +1,22 @@
+package br.com.main;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import br.com.model.Pessoa;
+
+public class CarregaTarefa {
+	public static void main(String[] args) {
+		
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("unidade");
+		EntityManager manager = factory.createEntityManager();
+		
+		Pessoa encontrada = manager.find(Pessoa.class, 1L);
+		System.out.println(encontrada.getEmail());
+		
+		manager.close();
+	}
+	
+
+}

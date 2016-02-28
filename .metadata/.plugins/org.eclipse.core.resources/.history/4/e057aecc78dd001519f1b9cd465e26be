@@ -1,0 +1,15 @@
+package br.com.model;
+
+import java.util.Calendar;
+
+import javax.persistence.Entity;
+
+
+@Entity
+public class Tarefa {
+	private Long id;
+	private String descricao;
+	private boolean finalizado;
+	
+	private Calendar dataFinalizacao;
+}

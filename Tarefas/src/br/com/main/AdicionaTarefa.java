@@ -1,0 +1,29 @@
+package br.com.main;
+
+import java.util.Calendar;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import br.com.model.Tarefa;
+
+public class AdicionaTarefa {
+	public static void main(String[] args) {
+		Tarefa tarefa = new Tarefa();
+		tarefa.setDescricao("Estudar JPA e Hibernate");
+		tarefa.setFinalizado(true);
+		tarefa.setDataFinalizacao(Calendar.getInstance());
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("unidade");
+		EntityManager manager = emf.createEntityManager();
+		
+		manager.getTransaction().begin();
+		manager.persist(tarefa);
+		manager.getTransaction().commit();
+		
+		System.out.println("Cadastrado " + tarefa.getId());
+		manager.close();
+		emf.close();
+	}
+}

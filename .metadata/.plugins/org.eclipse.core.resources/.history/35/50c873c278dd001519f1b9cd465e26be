@@ -1,0 +1,11 @@
+package br.com.model;
+
+import java.util.Calendar;
+
+public class Tarefa {
+	private Long id;
+	private String descricao;
+	private boolean finalizado;
+	
+	private Calendar dataFinalizacao;
+}
